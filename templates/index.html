@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Погода</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.city.label }} {{ form.city(size=20) }}
+        {{ form.submit }}
+    </form>
+    <div id="weatherData">
+        <h2>{{ data.name }}</h2>
+        <p>Temperature: {{ data.main.temp }}°C</p>
+        <!-- Добавьте другие элементы, необходимые для отображения данных -->
+        <p>Weather: {{ data.weather[0].description }}</p>
+    </div>
+</body>
+</html>
